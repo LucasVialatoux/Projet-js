@@ -17,31 +17,20 @@ data.onload = function () {
 };
 
 data.send(null);
+var video = document.getElementById("VideoPlayer");
 
-creerBouton();
+function playVideo() { 
+    video.play(); 
+} 
 
-function creerBouton(){
-	//créer le bouton next
-	var boutonNext = document.createElement("button");
-	var t = document.createTextNode("Next");  
-	boutonNext.appendChild(t);
-	document.body.appendChild(boutonNext);
+function pauseVideo() { 
+    video.pause(); 
+}
 
-	//créer le bouton previous
-	var boutonPrev = document.createElement("button");
-	var t = document.createTextNode("Previous");  
-	boutonPrev.appendChild(t);
-	document.body.appendChild(boutonPrev);
+function nextVideo() { 
+    video.pause(); 
+}
 
-	//créer le bouton play
-	var boutonPlay = document.createElement("button");
-	var t = document.createTextNode("Play");  
-	boutonPlay.appendChild(t);
-	document.body.appendChild(boutonPlay);
-
-	//créer le bouton play
-	var boutonPause = document.createElement("button");
-	var t = document.createTextNode("Pause");  
-	boutonPause.appendChild(t);
-	document.body.appendChild(boutonPause);
+function previousVideo() { 
+    video.pause(); 
 }

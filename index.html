@@ -3,13 +3,46 @@
 <head>
   <meta charset="utf-8">
   <title>Lecteur</title>
+  <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 </head>
 <body>
-	<video></video>
+	
+		<video width="400" height="222" id="VideoPlayer">
+	  		<source src="video.mp4" type="video/mp4" id="source"/> 
+	  		Veuillez mettre à jour votre navigateur
+		</video>
+
+		</br>
+	<div id="boutons">
+		<input type="button" value="Play" onclick="playVideo()" class="bouton">
+		<input type="button" value="Pause" onclick="pauseVideo()" class="bouton">
+		<input type="button" value="Next" onclick="nextVideo()" class="bouton">
+		<input type="button" value="Previous" onclick="previousVideo()" class="bouton">
+	</div>
+	<div class="Playlist">
+		<ul id="playlist">
+		    <li>
+		    	<a href=""><img src="image.jpg" alt="Playlist 1" width="400" height="222" onclick="load()"/></a>
+		    </li>
+		    <li>
+		    	<a href=""><img src="image.jpg" alt="Playlist 2" width="400" height="222" onclick="load()"/></a>
+		    </li>
+		    <li>
+		    	<a href=""><img src="image.jpg" alt="Playlist 3" width="400" height="222" onclick="load()"/></a>
+		    </li>
+		    <li>
+		    	<a href=""><img src="image.jpg" alt="Playlist 4" width="400" height="222" onclick="load()"/></a>
+		    </li>
+		    <li>
+		    	<a href=""><img src="image.jpg" alt="Playlist 5" width="400" height="222" onclick="load()"/></a>
+		    </li>
+		    <li>
+		    	<a href=""><img src="image.jpg" alt="Playlist 6" width="400" height="222" onclick="load()"/></a>
+		    </li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="javascript.js"></script>
 
 </body>
 </html>
-
-
-</BODY>
-</HTML>
