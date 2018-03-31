@@ -6,9 +6,10 @@
 #VideoPlayer{
 	display: inline-block;
 	padding-left: 40px;
+    padding-right: 30px;
 }
 
-ul li{
+#playlist li{
 	border-style : solid;
 	width: auto;
     background-color: white;
@@ -16,4 +17,34 @@ ul li{
     margin-bottom: 25px;
     margin-right: 25px;
     display: inline-block;
+}
+
+#VideoTitre{
+	display: inline-flex;
+	margin-right: 25px;
+}
+
+#ProchainsTitres{
+	list-style-type: none;
+	border-style: solid;
+    border-color: #d7d9dd;
+    width: 400px;
+    height: 222px;
+    margin: 0;
+    padding: 0;
+
+}
+
+#TitreLecture{
+    text-align: center;
+    border-bottom: solid;
+    border-bottom-color: #d7d9dd;
+}
+
+#ProchainsTitres li{
+    padding: 15px;
+}
+
+#Titre{
+    padding-left: 40px;
 }

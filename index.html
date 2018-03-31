@@ -6,11 +6,16 @@
   <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 </head>
 <body>
-	
-		<video width="400" height="222" id="VideoPlayer">
-	  		<source src="video.mp4" type="video/mp4" id="source"/> 
-	  		Veuillez mettre à jour votre navigateur
-		</video>
+		<p id="Titre"></p>
+		<div id="VideoTitre">
+			<video width="400" height="222" id="VideoPlayer">
+		  		<source src="video.mp4" type="video/mp4" id="source"/> 
+		  		Veuillez mettre à jour votre navigateur
+			</video>
+			<ul id="ProchainsTitres" style="overflow: auto">
+				<div id="essai"><li id="TitreLecture">Liste de lecture</li></div>
+			</ul>
+		</div>
 
 		</br>
 	<div id="boutons">
@@ -42,7 +47,7 @@
 		</ul>
 	</div>
 
-	<script type="text/javascript" src="javascript.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 
 </body>
 </html>
