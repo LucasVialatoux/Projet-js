@@ -25,6 +25,7 @@ data.send(null);
 
 
 var video = document.getElementById("VideoPlayer");
+var m=false;
 
 //Modifier la vidéo principale
 function changeVideo(title, link){
@@ -37,12 +38,57 @@ function changeVideo(title, link){
 
 //Jouer la vidéo principale
 function playVideo() { 
-    video.play(); 
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
 } 
 
 //Stopper la vidéo principale
-function pauseVideo() { 
-    video.pause(); 
+function stop() {
+    video.pause();
+    video.currentTime = 0;
+}
+
+function mute(){
+	if (m===false){
+		volume(0,0,0);
+		m=true;
+			}
+	else{
+		m=false;
+		volume(1,3,5)
+	}
+}
+
+function volume(volume,img,id) {	
+	m=false;
+    video.volume = volume;
+    document.getElementById("Vol").src="speaker"+img+".png";
+    var couleur;
+    for(var i=1;i<=id;i++){
+    	if(i<=2){
+    		document.getElementById(i).classList.add("vert");
+    	}
+    	if(i===3){
+    		document.getElementById(i).classList.add("jaune");
+    	}
+    	if(i>=4){
+    		document.getElementById(i).classList.add("rouge");
+    }
+}
+    for(var i=id+1;i<=5;i++){
+    	if(i<=2){
+    		document.getElementById(i).classList.remove("vert");
+    	}
+    	if(i===3){
+    		document.getElementById(i).classList.remove("jaune");
+    	}
+    	if(i>=4){
+    		document.getElementById(i).classList.remove("rouge");
+    }
+    }
 }
 
 //compteur pour savoir dans quel item on se trouve
