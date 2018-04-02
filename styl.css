@@ -1,0 +1,81 @@
+#boutons{
+	display:inline-block;
+    margin-top: 10px;
+	margin-left:40px;
+}
+#Vol{
+    margin-left:3px;
+}
+.volume {
+    margin-left: 150px;
+    position: absolute;
+    width: 45px;
+}
+
+.volume a {
+    background: #ebebeb;
+    width: 8px;
+    border-left: 1px solid #fff;
+    position: absolute;
+    bottom: 0;  
+}
+
+
+a.v1 { height: 5px;  left: 0px; }
+a.v2 { height: 10px; left: 9px; }
+a.v3 { height: 15px; left: 18px; }
+a.v4 { height: 20px; left: 27px; }
+a.v5 { height: 25px; left: 36px; }
+a.vert{background-color : #06ED15;}
+a.jaune{background-color : #EAF201;}
+a.rouge{background-color: #F22101;}
+
+#VideoPlayer{
+	display: inline-block;
+	padding-left: 40px;
+    padding-right: 30px;
+}
+
+#playlist li{
+	border-style : solid;
+	width: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    margin-right: 25px;
+    display: inline-block;
+}
+
+#divUrl{
+    margin-left: 25px;
+}
+
+#VideoTitre{
+	display: inline-flex;
+	margin-right: 25px;
+}
+
+#ProchainsTitres{
+	list-style-type: none;
+	border-style: solid;
+    border-color: #d7d9dd;
+    width: 400px;
+    height: 222px;
+    margin: 0;
+    padding: 0;
+
+}
+
+#TitreLecture{
+    text-align: center;
+    border-bottom: solid;
+    border-bottom-color: #d7d9dd;
+}
+
+#ProchainsTitres li{
+    padding: 15px;
+}
+
+#Titre{
+    padding-left: 40px;
+}

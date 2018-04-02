@@ -3,18 +3,25 @@
 <head>
   <meta charset="utf-8">
   <title>Lecteur</title>
-  <link rel="stylesheet" type="text/css" href="style.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="styl.css" media="all" />
 </head>
 <body>
 		<p id="Titre"></p>
 		<div id="VideoTitre">
 			<video width="400" height="222" id="VideoPlayer">
-		  		<source src="video.mp4" type="video/mp4" id="source"/> 
+		  		<source src="video3.mp4" type="video/mp4" id="source"/> 
 		  		Veuillez mettre à jour votre navigateur
 			</video>
 			<ul id="ProchainsTitres" style="overflow: auto">
-				<div id="essai"><li id="TitreLecture">Liste de lecture</li></div>
+				<div id="essai">
+					<li id="TitreLecture">Liste de lecture du flux RSS</li>
+				</div>
 			</ul>
+			<div id="divUrl">
+				<p>URL d'un flux RSS valide : </p>
+				<input type="text" id="urlInput">
+				<button onclick="validerURL()">Valider</button>
+			</div>
 		</div>
 
 		</br>
@@ -34,23 +41,14 @@
 	</div>
 	<div class="Playlist">
 		<ul id="playlist">
-		    <li>
-		    	<img src="son2.jpg" alt="Playlist 1" width="400" height="222" onclick="load()"/>
+			<li>
+		    	<img src="son.jpg" alt="Petit Biscuit" width="400" height="222" onclick="biscuitYou()"/>
 		    </li>
 		    <li>
-		    	<img src="son2.jpg" alt="Playlist 2" width="400" height="222" onclick="load()"/>
+		    	<img src="son2.jpg" alt="Petit Biscuit" width="400" height="222" onclick="biscuitSunset()"/>
 		    </li>
 		    <li>
-		    	<img src="son2.jpg" alt="Playlist 3" width="400" height="222" onclick="load()"/>
-		    </li>
-		    <li>
-		    	<img src="son2.jpg" alt="Playlist 4" width="400" height="222" onclick="load()"/>
-		    </li>
-		    <li>
-		    	<img src="son2.jpg" alt="Playlist 5" width="400" height="222" onclick="load()"/>
-		    </li>
-		    <li>
-		    	<img src="son2.jpg" alt="Playlist 6" width="400" height="222" onclick="load()"/>
+		    	<img src="son3.jpg" alt="Petit Biscuit" width="400" height="222" onclick="biscuitPalms()"/>
 		    </li>
 		</ul>
 	</div>

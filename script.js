@@ -1,31 +1,38 @@
-var url = "http://crossorigin.me/http://rss.cnn.com/services/podcasting/studentnews/rss.xml";
 
+var url=""
 var data = new XMLHttpRequest();
 var doc = "";
-data.open('GET', url, true);
-// La réponse doit être de type String ou "document"
-data.responseType = 'document';
-// La réponse sera parsée en xml
-data.overrideMimeType('text/xml');
 
-data.onload = function () {
-  if (data.readyState === data.DONE) {
-    if (data.status === 200) {
-      console.log(data.responseXML);
-      	var doc=data.responseXML;
-		nextVideo();
-		var items = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")
-		titresVideos(items);
-    }
-  }
-};
-data.send(null);
+//url qui fonctionne : http://crossorigin.me/http://rss.cnn.com/services/podcasting/studentnews/rss.xml
 
+function validerURL(){
+	console.log("URL prise en compte.");
+	url = document.getElementById("urlInput").value;
+	data.open('GET', url, true);
+	// La réponse doit être de type String ou "document"
+	data.responseType = 'document';
+	// La réponse sera parsée en xml
+	data.overrideMimeType('text/xml');
 
-
+	data.onload = function () {
+	  if (data.readyState === data.DONE) {
+	    if (data.status === 200) {
+	      //Afficher tout le document XML pour débuguer si besoin :
+	      //console.log(data.responseXML);
+	      	var doc=data.responseXML;
+			nextVideo();
+			var items = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")
+			titresVideos(items);
+	    }
+	  }
+	};
+	data.send(null);
+}
 
 var video = document.getElementById("VideoPlayer");
-var m=false;
+
+//Lance la prochaine vidéo à la fin de la vidéo principale
+video.onended = nextVideo();
 
 //Modifier la vidéo principale
 function changeVideo(title, link){
@@ -51,6 +58,9 @@ function stop() {
     video.currentTime = 0;
 }
 
+var m=false;
+
+//Muter la vidéo principale
 function mute(){
 	if (m===false){
 		volume(0,0,0);
@@ -62,6 +72,7 @@ function mute(){
 	}
 }
 
+//Gérer le volume de la vidéo
 function volume(volume,img,id) {	
 	m=false;
     video.volume = volume;
@@ -131,22 +142,58 @@ function previousVideo() {
 		}
 	}
 }
+var tab=new Array();
 
+//Affichage des titres dans la liste de lecture
 function titresVideos(items){
 	longueur = items.length;
-	console.log(items);
 	if(longueur>0){
 		var i=0;
 		while(i<longueur){
-			console.log("while");
 			title = items[i].getElementsByTagName("title")[0].textContent;
+			link = items[i].getElementsByTagName("link")[0].textContent;
 			var li = document.createElement('li');
 			li.innerHTML = title;
+			funct='changerVideo('+i+',link);'
+			li.setAttribute("onclick",funct);
 			document.getElementById('ProchainsTitres').appendChild(li);
+			tab[i]=title;
 			i++
 		}
 	}
 	else{
+		var li = document.createElement('li');
+		li.innerHTML = "Aucune vidéo trouvée";
+		document.getElementById('ProchainsTitres').appendChild(li);
+	}
+}
 
+function biscuitSunset(){
+	title="Petit Biscuit - Sunset Lover";
+	link="video2.mp4";
+	changeVideo(title,link);
+}
+
+function biscuitYou(){
+	title="Petit Biscuit - You";
+	link="video.mp4";
+	changeVideo(title,link);
+}
+
+function biscuitPalms(){
+	title="Petit Biscuit - Palms";
+	link="video3.mp4";
+	changeVideo(title,link);
+}
+
+//Changer la vidéo lors d'un clic sur la liste de lecture
+function changerVideo(n,link){
+	var doc=data.responseXML;
+	if (data.readyState === data.DONE) {
+		if (data.status === 200) {
+			title = tab[n];
+			link = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")[n].getElementsByTagName("link")[0].textContent;
+			changeVideo(title,link);
+		}
 	}
 }
