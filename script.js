@@ -1,4 +1,5 @@
-var url="";
+
+var url=""
 var data = new XMLHttpRequest();
 var doc = "";
 
@@ -20,7 +21,7 @@ function validerURL(){
 	      //console.log(data.responseXML);
 	      	var doc=data.responseXML;
 			nextVideo();
-			var items = doc.getElementsByTagName("channel")[0].getElementsByTagName("item");
+			var items = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")
 			titresVideos(items);
 	    }
 	  }
@@ -67,7 +68,7 @@ function mute(){
 			}
 	else{
 		m=false;
-		volume(1,3,5);
+		volume(1,3,5)
 	}
 }
 
@@ -76,6 +77,7 @@ function volume(volume,img,id) {
 	m=false;
     video.volume = volume;
     document.getElementById("Vol").src="speaker"+img+".png";
+    var couleur;
     for(var i=1;i<=id;i++){
     	if(i<=2){
     		document.getElementById(i).classList.add("vert");
@@ -87,7 +89,7 @@ function volume(volume,img,id) {
     		document.getElementById(i).classList.add("rouge");
     }
 }
-    for( i=id+1;i<=5;i++){
+    for(var i=id+1;i<=5;i++){
     	if(i<=2){
     		document.getElementById(i).classList.remove("vert");
     	}
@@ -108,7 +110,7 @@ function nextVideo() {
 	var doc=data.responseXML;
 	if (data.readyState === data.DONE) {
 		if (data.status === 200) {
-  			var longueur = doc.getElementsByTagName("channel")[0].getElementsByTagName("item").length;
+  			longueur = doc.getElementsByTagName("channel")[0].getElementsByTagName("item").length;
   			if(n<longueur-1){
 				n+=1;
 			}
@@ -127,35 +129,36 @@ function previousVideo() {
 	var doc=data.responseXML;
 	if (data.readyState === data.DONE) {
 		if (data.status === 200) {
-  			var longueur = doc.getElementsByTagName("channel")[0].getElementsByTagName("item").length;
+  			longueur = doc.getElementsByTagName("channel")[0].getElementsByTagName("item").length;
 				if(n>0){
 					n=n-1;
 				}
 				else{
 					var n=longueur-1;
 				}
-				var title = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")[n].getElementsByTagName("title")[0].textContent;
-				var link = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")[n].getElementsByTagName("link")[0].textContent;
+				title = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")[n].getElementsByTagName("title")[0].textContent;
+				link = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")[n].getElementsByTagName("link")[0].textContent;
 				changeVideo(title,link);
 		}
 	}
 }
-var tab=[];
+var tab=new Array();
 
 //Affichage des titres dans la liste de lecture
 function titresVideos(items){
-	var longueur = items.length;
+	longueur = items.length;
 	if(longueur>0){
 		var i=0;
 		while(i<longueur){
-			var title = items[i].getElementsByTagName("title")[0].textContent;
+			title = items[i].getElementsByTagName("title")[0].textContent;
+			link = items[i].getElementsByTagName("link")[0].textContent;
 			var li = document.createElement('li');
 			li.innerHTML = title;
-			var funct='changerVideo('+i+',link);';
+			funct='changerVideo('+i+',link);'
 			li.setAttribute("onclick",funct);
 			document.getElementById('ProchainsTitres').appendChild(li);
 			tab[i]=title;
-			i++;
+			i++
 		}
 	}
 	else{
@@ -165,12 +168,30 @@ function titresVideos(items){
 	}
 }
 
+function biscuitSunset(){
+	title="Petit Biscuit - Sunset Lover";
+	link="video2.mp4";
+	changeVideo(title,link);
+}
+
+function biscuitYou(){
+	title="Petit Biscuit - You";
+	link="video.mp4";
+	changeVideo(title,link);
+}
+
+function biscuitPalms(){
+	title="Petit Biscuit - Palms";
+	link="video3.mp4";
+	changeVideo(title,link);
+}
+
 //Changer la vidéo lors d'un clic sur la liste de lecture
 function changerVideo(n,link){
 	var doc=data.responseXML;
 	if (data.readyState === data.DONE) {
 		if (data.status === 200) {
-			var title = tab[n];
+			 title = tab[n];
 			link = doc.getElementsByTagName("channel")[0].getElementsByTagName("item")[n].getElementsByTagName("link")[0].textContent;
 			changeVideo(title,link);
 		}
