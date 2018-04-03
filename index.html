@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang='fr'>
 <head>
   <meta charset="utf-8">
   <title>Lecteur</title>
-  <link rel="stylesheet" type="text/css" href="styl.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 </head>
 <body>
 		<p id="Titre"></p>
@@ -13,9 +13,7 @@
 		  		Veuillez mettre à jour votre navigateur
 			</video>
 			<ul id="ProchainsTitres" style="overflow: auto">
-				<div id="essai">
 					<li id="TitreLecture">Liste de lecture du flux RSS</li>
-				</div>
 			</ul>
 			<div id="divUrl">
 				<p>URL d'un flux RSS valide : </p>
@@ -24,13 +22,13 @@
 			</div>
 		</div>
 
-		</br>
+		<br>
 	<div id="boutons">
-		<img src="play.png" onclick="playVideo()"/>
-    <img src="stop.png" onclick="stop()"/>
-    <img  src="previous.png" value="Previous" onclick="previousVideo()" class="bouton">
-		<img  src="next.png" value="Next" onclick="nextVideo()" class="bouton">
-    <img id="Vol" src="speaker3.png" onclick="mute()"/>
+	<img src="play.png" alt="play" onclick="playVideo()"/>
+    <img src="stop.png" alt="stop" onclick="stop()"/>
+    <img  src="previous.png" alt="previous" onclick="previousVideo()" class="bouton">
+	<img  src="next.png" alt="next" onclick="nextVideo()" class="bouton">
+    <img id="Vol" src="speaker3.png" alt="speaker" onclick="mute()"/>
     <span class="volume">
     <a class="v1" id="1" onclick="volume(0.1,1,1)"></a>
     <a class="v2" id="2" onclick="volume(0.3,1,2)"></a>
@@ -42,18 +40,18 @@
 	<div class="Playlist">
 		<ul id="playlist">
 			<li>
-		    	<img src="son.jpg" alt="Petit Biscuit" width="400" height="222" onclick="biscuitYou()"/>
+		    	<img src="son.jpg" alt="Petit Biscuit" width="400" height="222" onclick="changeVideo('Petit Biscuit - You','video.mp4')"/>
 		    </li>
 		    <li>
-		    	<img src="son2.jpg" alt="Petit Biscuit" width="400" height="222" onclick="biscuitSunset()"/>
+		    	<img src="son2.jpg" alt="Petit Biscuit" width="400" height="222" onclick="changeVideo('Petit Biscuit - Sunset Lover','video2.mp4')"/>
 		    </li>
 		    <li>
-		    	<img src="son3.jpg" alt="Petit Biscuit" width="400" height="222" onclick="biscuitPalms()"/>
+		    	<img src="son3.jpg" alt="Petit Biscuit" width="400" height="222" onclick="changeVideo('Petit Biscuit - Palms','video3.mp4')"/>
 		    </li>
 		</ul>
 	</div>
 
-	<script type="text/javascript" src="script.js"></script>
+	<script  src="script.js"></script>
 
 </body>
-</html>
+</html> 	
